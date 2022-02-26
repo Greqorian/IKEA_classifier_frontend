@@ -1,4 +1,9 @@
-.App html
+html
+    background-color: #f1f4ef
+    height: 100%
+    width: 100%
+
+.App .root
   height: 100%
   width: 100%
   text-align: center
@@ -11,15 +16,14 @@
     letter-spacing: 1px
     padding-top: 20px
     padding-bottom: 20px
-    background-color: gray
-
-.container
-    
+    background-color: #7b9eae
 
 .frame
-    width: 60%
+    width: 80vh
+    min-height: 70vh
     margin: auto
-    background-color: green
+    background-color: #fff
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
 
 // @include media-breakpoint-up(sm)
 //     .header
@@ -36,7 +40,7 @@
 
 h1  
     font-size: 130px
-    font-weight: normal
+    font-weight: lighter
     line-height: 48px
     text-align: center
 
@@ -59,25 +63,22 @@ h1
 
     & + label
         background-color: white
-        box-shadow: 0px 5px 0px grey
-        width: 200px
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+        width: 80%
         height: 40px
         font-size: 1em
-        font-weight: 500
-        color: black
-        line-height: 2.6em
+        font-weight: lighter
+        line-height: 2em
         text-transform: uppercase
         text-align: center
         display: inline-block
-        border-radius: 10px
         transition: 150ms
 
 
     &:focus + label,
 
     & + label:hover
-        background-color: grey
-        box-shadow: 0px 3px 0px grey
+        background-color: #f1f4ef
         cursor: pointer
 
 

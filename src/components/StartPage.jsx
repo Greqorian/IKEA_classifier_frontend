@@ -24,7 +24,6 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
 
 
     return (
-        <div className="container">
             <div className="frame">
                 <div className="row">
                     <h1 className="col-12 header">
@@ -33,7 +32,7 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
                 </div>
                 <div className="row">
                     <div className="col-12 message">
-                        IKEA 
+                        Furniture recognition for IKEA products
                     </div>
                 </div>
                 <div className="row">
@@ -48,7 +47,6 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
                 {image}
                 {results}
             </div>
-        </div>
     );
 }
 export default StartPage;
