@@ -17,16 +17,14 @@ const Engine = () => {
         var formData = new FormData();
         formData.append('image', img_file);
     
-        fetch('https://flower-classifier.onrender.com/predict', {
+        fetch('https://ikea-clasiffier.onrender.com/predict', {
             method: 'POST',
             body: formData
         }).then(
             resp => {
-                console.log('response', resp)
-    
                 resp.json().then(data => {
-                    setStep(1)
                     setResponse(data)
+                    setStep(1)
                 });
             }
         );

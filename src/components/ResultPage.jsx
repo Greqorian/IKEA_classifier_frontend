@@ -1,13 +1,18 @@
 const ResultPage = (result) => {
-
+//{JSON.stringify(result)}
 
     return ( 
-            <div className="container">
-                <div className="row center-div preds">
-                    <div className="col-12 center-div pred-cat"> Predicted Category: {result['category']}</div>
+            
+                <div className="preds">
+                   
+                    <div className="pred-cat"> 
+                        Predicted Category: 
+                        
+                        { result.result.category ?? 'not exist'} 
+                    </div>
                 </div>
                 
-            </div>
+           
         );
 
 }

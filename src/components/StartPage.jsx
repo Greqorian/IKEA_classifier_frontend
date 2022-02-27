@@ -5,7 +5,7 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
 
     let image, results;
 
-    img ? image = <div className="row"><div className="col-12 center-div"><img src={img} className="center-div image-preview" /></div></div>
+    img ? image = <div className="image-frame"><img src={img} className="image-preview" /></div>
         : image = <div className="row"></div>
 
 
@@ -24,29 +24,42 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
 
 
     return (
-            <div className="frame">
-                <div className="row">
-                    <h1 className="col-12 header">
-                        IKEA Classifier
-                    </h1>
-                </div>
-                <div className="row">
-                    <div className="col-12 message">
-                        Furniture recognition for IKEA products
+        <div className="container">
+            <div className="flexbox"></div>
+            <div className="flexbox">
+
+                <div className="frame">
+                    <div className="container-smaller">
+
+                        <div className="header-row">
+                            <h1 className="header">
+                                IKEA Classifier
+                            </h1>
+                        </div>
+                        <div className="row">
+                            <div className="message">
+                                Furniture recognition for IKEA products
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="center-div choose-file">
+                                <input type="file" name="file" id="file" className="choose" onChange={(event) => { console.log(event.target.files[0]); handleChange(event.target.files[0]) }} />
+                                <label htmlFor="file">UPLOAD IMAGE</label>
+                            </div>
+                        </div>
+                        <div clssName='image-frame'>
+                            {image}
+                            {results}
+                        </div>
+
+                       
+
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-12 center-div choose-file">
-                        <input type="file" name="file" id="file" className="choose" onChange={(event) => { console.log(event.target.files[0]); handleChange(event.target.files[0]) }} />
-                        <label htmlFor="file">UPLOAD IMAGE</label>
-
-
-                    </div>
-
-                </div>
-                {image}
-                {results}
             </div>
+
+            <div className="flexbox"></div>
+        </div>
     );
 }
 export default StartPage;
