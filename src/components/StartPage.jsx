@@ -15,7 +15,7 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
             <div className="col-12 center-div">
                 <button className="btn btn-primary" type="button" disabled>
                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    Detecting flower
+                    Detecting...
                 </button>
             </div>
         </div>
@@ -37,17 +37,18 @@ const StartPage = ({ handleChange, fetchResult, img, currentStep, response }) =>
                             </h1>
                         </div>
                         <div className="row">
-                            <div className="message">
+                            <div className="text-center">
                                 Furniture recognition for IKEA products
                             </div>
                         </div>
-                        <div className="row">
+                        
+                        <div className='image-frame'>
                             <div className="center-div choose-file">
                                 <input type="file" name="file" id="file" className="choose" onChange={(event) => { console.log(event.target.files[0]); handleChange(event.target.files[0]) }} />
                                 <label htmlFor="file">UPLOAD IMAGE</label>
                             </div>
-                        </div>
-                        <div clssName='image-frame'>
+                
+                       
                             {image}
                             {results}
                         </div>
