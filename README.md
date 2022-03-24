@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<img src="batch_ikea_images.png" width="350"> 
+<img src="Application Mockup" width="600"> 
   <h3 align="center">IKEA_classifier_frontend
 </h3>
 
@@ -25,6 +25,11 @@ Navigate to your application on Heroku: [IKEA_Classifier](https://ikea-classifie
 
 Or clone the repository use the `npm install` command and `npm start` to launch the applications locally.
 
+### Wireframes
+<img src="Interface Wireframes.png" width="600"> 
+
+### Desktop Preview
+<img src="localhost_30002.png" width="600"> 
 
 ### Built With
 
