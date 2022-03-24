@@ -25,7 +25,7 @@ Navigate to your application on Heroku: [IKEA_Classifier](https://ikea-classifie
 
 Or clone the repository use the `npm install` command and `npm start` to launch the applications locally.
 
-### UX Design 
+### UI Design 
 
 | Wireframes                                       | Desktop preview                           | 
 |--------------------------------------------------|-------------------------------------------|
