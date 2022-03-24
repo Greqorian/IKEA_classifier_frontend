@@ -29,7 +29,7 @@ Or clone the repository use the `npm install` command and `npm start` to launch 
 
 | Wireframes                                       | Desktop preview                           | 
 |--------------------------------------------------|-------------------------------------------|
-| <img src="interface_wireframes.png" width="500"> |<img src="localhost_30002.png" width="400">|
+| <img src="interface_wireframes.png" width="350"> |<img src="localhost_30002.png" width="400">|
 
 ### Built With
 
