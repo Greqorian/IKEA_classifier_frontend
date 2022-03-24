@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<img src="Application Mockup.png" width="400"> 
+<img src="Application Mockup.png" width="600"> 
   <h3 align="center">IKEA_classifier_frontend
 </h3>
 
@@ -29,7 +29,7 @@ Or clone the repository use the `npm install` command and `npm start` to launch 
 
 | Wireframes                                       | Desktop preview                           | 
 |--------------------------------------------------|-------------------------------------------|
-| <img src="Interface Wireframes.png" width="400"> |<img src="localhost_30002.png" width="400">|
+| <img src="Interface Wireframes.png" width="500"> |<img src="localhost_30002.png" width="400">|
 
 ### Built With
 
