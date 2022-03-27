@@ -11,7 +11,10 @@ const ResultPage = (result) => {
             </div>
             <div className="text-left">
                 <p>There is % probability that this is:</p>
-                {Object.keys(result.result.probs).map(key => { return <p>{key} : {(result.result.probs[key]*100).toFixed(0) } %</p> })
+                {Object.keys(result.result.probs).map(key => {
+                    if (result.result.probs[key] * 100 > 0) { 
+                        return <p>{key} : {(result.result.probs[key] * 100).toFixed(0)} %</p> }
+                })
                 }
 
 
