@@ -1,40 +1,67 @@
-import ResultPage from "./ResultPage";
 import React, { useState } from "react";
+import ImageUpload from "./ImageUpload"
+import axios from "axios";
+import Predictions from './Predictions'
+import ImagePreview from './ImagePreview'
+import Header from './Header'
 
-// const getImgFormData = (imgFile) => {
-//     const formData = new FormData();
-//     formData.append("image", imgFile);
-// }
+const getFormData = (imgFile) => {
+  let formData = new FormData();
+  formData.append("image", imgFile);
+  return formData;
+}
+const fetchPredic = (formData) => {
 
-// const fetchPrediction = (formData) => {
-//     return fetch("https://ikea-clasiffier.onrender.com/predict", {
-//       method: "POST",
-//       body: formData,
-//     }).then((resp) => {return resp});
-//   };
-
-const LandingPage = () => {
-  const [image, setImage] = useState({
-    imgFile: undefined,
-    imgObj: undefined,
-  });
-  const [response, setResponse] = useState(null);
-
-  const handleImage = (imgFile) => {
-    setImage({
-      imgFile: imgFile,
-      imgObj: URL.createObjectURL(imgFile),
-    });
+  let res;
+  let config = {
+    method: 'post',
+    url: 'https://ikea-clasiffier.onrender.com/predict',
+    data: formData
   };
 
-  // const predictionResp = {};
+  axios(config)
+    .then((response) => {
+      // console.log(response.data)
+      res = response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-  // if( image.imgFile !== undefined) {
-  //     const formImageData = getImgFormData(image.imgFile)
-  //     predictionResp = fetchPrediction(formImageData);
+  return res;
+};
+
+const getPredictionsFromImage = (image) => {
+
+  if (image !== null) {
+    const formData = getFormData(image);
+    console.log(formData)
+    const res = fetchPredic(formData);
+    if (res !== undefined) { return res }
+  }
+}
+
+
+const LandingPage = () => {
+
+  const [image, setImage] = useState(null);
+  const [predictions, setPredictions] = useState(null);
+
+  const handleInputFile = (imgFile) => { setImage(imgFile) };
+
+  //imgObj: URL.createObjectURL(imgFile),
+
+  const predResult = getPredictionsFromImage(image)
+  if (predResult !== undefined) { setPredictions(predResult) }
+
+  console.log("predictions", predictions)
+
+
+
+  // if (response) {
+
+
   // }
-
-  // if (predictionResp) { setResponse(predictionResp); console.log(response) }
 
   //let image, results;
 
@@ -70,10 +97,11 @@ const LandingPage = () => {
             </div>
 
             <div className="image-frame">
-              <ImageUpload handleImage={handleImage()} />
+              <ImageUpload handleInputFile={handleInputFile} />
 
-              {/* {image}
-                            {results} */}
+              {predictions && <Predictions predictions={predictions} />}
+
+
             </div>
           </div>
         </div>

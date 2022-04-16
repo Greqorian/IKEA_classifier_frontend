@@ -1,16 +1,20 @@
-const ImageUpload = ({handleImage}) => {
+const ImageUpload = ({ handleInputFile }) => {
   return (
     <div className="center-div choose-file">
-      <label htmlFor="file">UPLOAD IMAGE</label>ƒ
-      <input
-        type="file"
-        name="file"
-        id="fileInput"
-        className="choose"
-        onChange={(event) => {
-          handleImage(event.target.files[0]);
-        }}
-      />
+      <form>
+        <input
+          type="file"
+          name="file"
+          id="file"
+          className="choose"
+          onChange={(e) => {
+            handleInputFile(e.target.files[0]);
+          }}
+        />
+        <label htmlFor="file">UPLOAD IMAGE</label>
+      </form>
     </div>
   );
 };
+
+export default ImageUpload;
