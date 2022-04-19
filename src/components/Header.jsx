@@ -1,6 +1,8 @@
 const Header = () => {
     return ( 
-        <div></div>
+            <div className="header-row">
+              <h1 className="header">IKEA Classifier</h1>
+            </div>
      );
 }
  

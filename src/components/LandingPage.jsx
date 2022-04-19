@@ -1,65 +1,69 @@
 import React, { useState } from "react";
-import ImageUpload from "./ImageUpload"
+import ImageUpload from "./ImageUpload";
 import axios from "axios";
-import Predictions from './Predictions'
-import ImagePreview from './ImagePreview'
-import Header from './Header'
+import Predictions from "./Predictions";
+import ImagePreview from "./ImagePreview";
+import Header from "./Header";
+import Title from "./Title";
+import WrapperContainer from "./WrapperContainer";
 
 const getFormData = (imgFile) => {
   let formData = new FormData();
   formData.append("image", imgFile);
   return formData;
-}
-const fetchPredic = (formData) => {
+};
 
-  let res;
+const fetchPredic = async (formData, handleResponse) => {
   let config = {
-    method: 'post',
-    url: 'https://ikea-clasiffier.onrender.com/predict',
-    data: formData
+    method: "post",
+    url: "https://ikea-clasiffier.onrender.com/predict",
+    data: formData,
   };
 
-  axios(config)
+  await axios(config)
     .then((response) => {
-      // console.log(response.data)
-      res = response.data;
+      console.log("response", response.data);
+      handleResponse(response.data);
     })
     .catch((error) => {
       console.log(error);
     });
-
-  return res;
 };
 
-const getPredictionsFromImage = (image) => {
+// const getPredictionsFromImage = (image) => {
+//   let res;
 
-  if (image !== null) {
-    const formData = getFormData(image);
-    console.log(formData)
-    const res = fetchPredic(formData);
-    if (res !== undefined) { return res }
-  }
-}
-
+//   if (image !== null) {
+//     const formData = getFormData(image);
+//     res = fetchPredic(formData);
+//   }
+//   console.log("res", res);
+//   return res;
+// };
 
 const LandingPage = () => {
-
   const [image, setImage] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const [predictions, setPredictions] = useState(null);
 
-  const handleInputFile = (imgFile) => { setImage(imgFile) };
+  const handleInputFile = (imgFile) => {
+    setIsFetching(true);
+    setImage(imgFile);
+  };
+  const handleResponse = (response) => {
+    setPredictions(response);
+  };
 
   //imgObj: URL.createObjectURL(imgFile),
 
-  const predResult = getPredictionsFromImage(image)
-  if (predResult !== undefined) { setPredictions(predResult) }
-
-  console.log("predictions", predictions)
-
-
-
+  if (isFetching === true) {
+    const formData = getFormData(image);
+    fetchPredic(formData, handleResponse);
+    setIsFetching(false);
+    
+  }
+  console.log("out response", predictions)
   // if (response) {
-
 
   // }
 
@@ -82,33 +86,27 @@ const LandingPage = () => {
   //         : results = <div></div>
 
   return (
-    <div className="container">
+   
+      <WrapperContainer>
       <div className="flexbox"></div>
-      <div className="flexbox">
         <div className="frame">
           <div className="container-smaller">
-            <div className="header-row">
-              <h1 className="header">IKEA Classifier</h1>
-            </div>
+            <Header />
             <div className="row">
-              <div className="text-center">
-                Furniture recognition for IKEA products
-              </div>
+              <Title/>
             </div>
 
             <div className="image-frame">
               <ImageUpload handleInputFile={handleInputFile} />
 
-              {predictions && <Predictions predictions={predictions} />}
-
-
+              {predictions !== null && <Predictions predictions={predictions} />}
             </div>
           </div>
         </div>
-      </div>
+      
 
       <div className="flexbox"></div>
-    </div>
+      </WrapperContainer>
   );
 };
 export default LandingPage;
