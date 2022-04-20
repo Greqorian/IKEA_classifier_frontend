@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ImageUpload from "./ImageUpload";
-import axios from "axios";
+import {getFormData, fetchPredic} from "../utils/axios";
 import Predictions from "./Predictions";
 import ImagePreview from "./ImagePreview";
 import Header from "./Header";
@@ -12,28 +12,6 @@ import {
   WrapperContainerMiddle,
   WrapperContainerSmall,
 } from "./Wrappers";
-
-const getFormData = (imgFile) => {
-  let formData = new FormData();
-  formData.append("image", imgFile);
-  return formData;
-};
-
-const fetchPredic = async (formData, handleResponse) => {
-  let config = {
-    method: "post",
-    url: "https://ikea-clasiffier.onrender.com/predict",
-    data: formData,
-  };
-
-  await axios(config)
-    .then((response) => {
-      handleResponse(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
 
 const LandingPage = () => {
   const [image, setImage] = useState(null);
