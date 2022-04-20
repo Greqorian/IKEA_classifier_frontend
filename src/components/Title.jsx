@@ -1,8 +1,8 @@
-const Title = () => {
+const Title = ({text}) => {
   return (
-    <div className="row">
+    <div className="row-padding">
       <div className="text-center">
-        <p>Furniture recognition for IKEA products</p>
+        <h4>{text}</h4>
       </div>
     </div>
   );

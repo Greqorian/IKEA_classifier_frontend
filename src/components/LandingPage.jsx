@@ -5,7 +5,13 @@ import Predictions from "./Predictions";
 import ImagePreview from "./ImagePreview";
 import Header from "./Header";
 import Title from "./Title";
-import WrapperContainer from "./WrapperContainer";
+import SpacerFlexbox from "./SpacerFlexbox";
+
+import {
+  WrapperContainerLarge,
+  WrapperContainerMiddle,
+  WrapperContainerSmall,
+} from "./Wrappers";
 
 const getFormData = (imgFile) => {
   let formData = new FormData();
@@ -22,24 +28,12 @@ const fetchPredic = async (formData, handleResponse) => {
 
   await axios(config)
     .then((response) => {
-      console.log("response", response.data);
       handleResponse(response.data);
     })
     .catch((error) => {
       console.log(error);
     });
 };
-
-// const getPredictionsFromImage = (image) => {
-//   let res;
-
-//   if (image !== null) {
-//     const formData = getFormData(image);
-//     res = fetchPredic(formData);
-//   }
-//   console.log("res", res);
-//   return res;
-// };
 
 const LandingPage = () => {
   const [image, setImage] = useState(null);
@@ -51,62 +45,36 @@ const LandingPage = () => {
     setImage(imgFile);
   };
   const handleResponse = (response) => {
+    setIsFetching(false);
     setPredictions(response);
   };
-
-  //imgObj: URL.createObjectURL(imgFile),
 
   if (isFetching === true) {
     const formData = getFormData(image);
     fetchPredic(formData, handleResponse);
-    setIsFetching(false);
     
   }
-  console.log("out response", predictions)
-  // if (response) {
 
-  // }
-
-  //let image, results;
-
-  // img ? image = <div className="image-frame"><img src={img} className="image-preview" /></div>
-  //     : image = <div className="row"></div>
-
-  // currentStep === 3 ?
-  //     results =
-  //     <div className="row spinner">
-  //         <div className="col-12 center-div">
-  //             <button className="btn btn-primary" type="button" disabled>
-  //                 <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  //                 Detecting...
-  //             </button>
-  //         </div>
-  //     </div>
-  //     : currentStep === 1 ? results = <ResultPage result={response} />
-  //         : results = <div></div>
+  const imgSrc = image !== null && URL.createObjectURL(image);
+  console.log("isFetching", isFetching);
 
   return (
-   
-      <WrapperContainer>
-      <div className="flexbox"></div>
-        <div className="frame">
-          <div className="container-smaller">
-            <Header />
-            <div className="row">
-              <Title/>
-            </div>
-
-            <div className="image-frame">
-              <ImageUpload handleInputFile={handleInputFile} />
-
-              {predictions !== null && <Predictions predictions={predictions} />}
-            </div>
-          </div>
-        </div>
-      
-
-      <div className="flexbox"></div>
-      </WrapperContainer>
+    <WrapperContainerLarge>
+      <SpacerFlexbox />
+      <WrapperContainerMiddle>
+        <Header />
+        <WrapperContainerSmall>
+          <Title text={"Furniture recognition for IKEA products"} />
+          <ImageUpload handleInputFile={handleInputFile} />
+          <ImagePreview imgSrc={imgSrc} />
+          
+          {predictions !== null && isFetching === false && <Predictions predictions={predictions} /> }
+          {isFetching == true && <Title text={"Identification pending..."} /> }
+          
+        </WrapperContainerSmall>
+      </WrapperContainerMiddle>
+      <SpacerFlexbox />
+    </WrapperContainerLarge>
   );
 };
 export default LandingPage;

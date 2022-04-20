@@ -1,6 +1,6 @@
 const SpacerFlexbox = () => {
     return (
-        <div className="flexbox"></div>
+        <div className="spacer-flexbox"></div>
     );
   };
   
