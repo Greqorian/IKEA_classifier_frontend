@@ -30,7 +30,6 @@ const LandingPage = () => {
   if (isFetching === true) {
     const formData = getFormData(image);
     fetchPredic(formData, handleResponse);
-    
   }
 
   const imgSrc = image !== null && URL.createObjectURL(image);
