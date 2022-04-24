@@ -4,7 +4,6 @@ import './styles/styles.sass';
 function App() {
   return (
     <div className="App">
-      {console.log("app")}
       <LandingPage/>
     </div>
   );

@@ -1,10 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from '@emotion/react'
 
-const Title = ({ text }) => {
+interface TitleProps {
+  children: React.ReactNode
+}
+
+const Title = ({children}:TitleProps) => {
   return (
     <div css={styles.row}>
-      <h3>{text}</h3>
+      <h3>{children}</h3>
     </div>
   );
 };
@@ -13,7 +17,6 @@ export default Title;
 
 const styles = {
   row: {
-    width: '100%',
     padding: '10px'
   },
 

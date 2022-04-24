@@ -4,7 +4,7 @@ import {getFormData, fetchPredic} from "../utils/axios";
 import Predictions from "./Predictions";
 import ImagePreview from "./ImagePreview";
 import Header from "./Header";
-import Title from "./Title";
+import Title from "./Title.tsx";
 import SpacerFlexbox from "./SpacerFlexbox";
 
 import {
@@ -41,12 +41,12 @@ const LandingPage = () => {
       <WrapperContainerMiddle>
         <Header />
         <WrapperContainerSmall>
-          <Title text={"Furniture recognition for IKEA products"} />
+          <Title>Furniture recognition for IKEA products</Title>
           <ImageUpload handleInputFile={handleInputFile} />
           <ImagePreview imgSrc={imgSrc} />
           
           {predictions !== null && isFetching === false && <Predictions predictions={predictions} /> }
-          {isFetching == true && <Title text={"Identification pending..."} /> }
+          {isFetching == true && <Title>Identification pending...</Title> }
           
         </WrapperContainerSmall>
       </WrapperContainerMiddle>

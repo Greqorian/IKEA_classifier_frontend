@@ -3,8 +3,7 @@ import { jsx } from '@emotion/react'
 
 const ImageUpload = ({ handleInputFile }) => {
   return (
-    <div css={styles.form}>
-      <form css={styles.form}>
+      <form css={styles.formFrame}>
         <input
           type="file"
           name="file"
@@ -18,7 +17,6 @@ const ImageUpload = ({ handleInputFile }) => {
           <h3>UPLOAD IMAGE</h3>
         </label>
       </form>
-    </div>
   );
 };
 
@@ -26,19 +24,19 @@ export default ImageUpload;
 
 
 const styles = {
-  form: {
+
+  formFrame: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
     width: '100%',
-    padding: '0 10px 0 10px'
+    // padding: '0 10px 0 10px'
   },
   input: {
     display: 'none'
   },
   label: {
     padding: '10px',
-    width: '100%',
+    width: '90%',
     backgroundColor: 'white',
     boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
     display: 'inline-block',

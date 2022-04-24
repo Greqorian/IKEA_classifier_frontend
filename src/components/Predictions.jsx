@@ -1,14 +1,12 @@
 import ProbsList from "./ProbsList";
-import Title from "./Title";
+import Title from "./Title.tsx";
 
 const Predictions = ({ predictions }) => {
   return (
-    <div className="info-frame">
-      <div className="text-center">
-        <Title text={"We assume it is:"} />
-        <h4>{predictions.category ? predictions.category : "not exist"}</h4>
-      </div>
-      <div className="text-left">
+    <div>
+        <h3>We assume it is:</h3>
+        <Title>{predictions.category ? predictions.category : "not exist"}</Title>
+      <div>
         <p>There is % probability that this is:</p>
         <ProbsList probs={predictions.probs} />
       </div>
