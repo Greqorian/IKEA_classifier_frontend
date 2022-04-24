@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-<img src="public/appPreview/appPreview.png" width="600"> 
+<img src="public/appPreview/appPreview.PNG" width="600"> 
   <h3 align="center">IKEA_classifier_frontend
 </h3>
 
@@ -13,7 +13,7 @@
 <!-- ABOUT THE PROJECT -->
 ### About The Project
 
-The application [IKEA_Classifier](https://ikea-classifier.herokuapp.com/) is based on React library and integrated model of neural networks based on FastAi library.
+The application [IKEA_Classifier](https://ikea-classifier.herokuapp.com/) is based on React library, Typescript and integrated model of neural networks based on FastAi library.
 You can find out more about the whole project here: [IKEA_Products_Recognition_AI](https://github.com/Greqorian/IKEA_Products_Recognition_AI)
 
 The current version 2.0 of the application recognizes up to 100 different pieces of furniture. Ultimately, the application should recognize the full range of IKEA furniture, i.e. over 1700 items.
@@ -33,9 +33,10 @@ Or clone the repository use the `npm install` command and `npm start` to launch 
 
 ### Built With
 
-* [Reract](https://reactjs.org/)
-* [JavaScript](https://www.javascript.com/)
+* [React](https://reactjs.org/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Sass](https://sass-lang.com/)
+* [CSS-in-JS Emotion](https://emotion.sh/docs/introduction)
 
 <!-- CONTACT -->
 ### Contact
