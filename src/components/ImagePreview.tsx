@@ -1,7 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
+import { css, jsx } from '@emotion/react'
 
-const ImagePreview = ({ imgSrc }) => {
+type ImagePreviewType = {
+  imgSrc: string | null
+}
+
+const ImagePreview = ({ imgSrc }: ImagePreviewType) => {
+
+  if (imgSrc === null) return null;
+
   return (
     <div css={styles.imageFrame} >
       {imgSrc && <img src={imgSrc} css={styles.image} />}
@@ -12,14 +19,14 @@ const ImagePreview = ({ imgSrc }) => {
 export default ImagePreview;
 
 const styles = {
-  imageFrame: {
+  imageFrame: css({
     padding: '10px',
     alignSelf: 'center',
-  },
-  image: {
+  }),
+  image: css({
     objectFit: 'cover',
     maxHeight: '400px',
     width: '100%',
-  }
+  })
 
 }

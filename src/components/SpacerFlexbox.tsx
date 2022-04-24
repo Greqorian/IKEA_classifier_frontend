@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
+import { jsx, css } from '@emotion/react'
 
 const SpacerFlexbox = () => {
     return (
@@ -10,12 +10,12 @@ const SpacerFlexbox = () => {
 export default SpacerFlexbox;
 
 const styles = {
-    spacerBox: {
+    spacerBox: css({
         flex: '1 2 auto',
         display: 'none',
         '@media (min-width: 576px)': {
             display:'block'
           }
-    },
+    }),
 
 }

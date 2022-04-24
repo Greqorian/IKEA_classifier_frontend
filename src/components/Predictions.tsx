@@ -1,7 +1,12 @@
 import ProbsList from "./ProbsList";
-import Title from "./Title.tsx";
+import Title from "./Title";
 
-const Predictions = ({ predictions }) => {
+export type PredictionsType = { 
+  category: string,
+  probs: any
+};
+
+const Predictions = ({ predictions }: {predictions: PredictionsType}) => {
   return (
     <div>
         <h3>We assume it is:</h3>

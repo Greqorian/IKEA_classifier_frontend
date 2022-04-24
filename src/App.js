@@ -1,4 +1,4 @@
-import LandingPage from './components/LandingPage.jsx'
+import LandingPage from './components/LandingPage'
 import './styles/styles.sass';
 
 function App() {

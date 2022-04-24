@@ -1,7 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
+import { css, jsx } from '@emotion/react'
 
-const ImageUpload = ({ handleInputFile }) => {
+type ImageUploadType = {
+
+  handleInputFile: (imgFile: File) => void
+}
+
+const ImageUpload = ({ handleInputFile }: ImageUploadType) => {
   return (
       <form css={styles.formFrame}>
         <input
@@ -10,7 +15,7 @@ const ImageUpload = ({ handleInputFile }) => {
           id="file"
           css={styles.input}
           onChange={(e) => {
-            handleInputFile(e.target.files[0]);
+            if(e.target.files !== null){ handleInputFile(e.target.files[0]) };
           }}
         />
         <label htmlFor="file" css={styles.label}>
@@ -25,16 +30,16 @@ export default ImageUpload;
 
 const styles = {
 
-  formFrame: {
+  formFrame: css({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
     // padding: '0 10px 0 10px'
-  },
-  input: {
+  }),
+  input: css({
     display: 'none'
-  },
-  label: {
+  }),
+  label: css({
     padding: '10px',
     width: '90%',
     backgroundColor: 'white',
@@ -44,5 +49,5 @@ const styles = {
       backgroundColor: '#efefef',
       cursor: 'pointer'
     }
-  }
+  })
 }

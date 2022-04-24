@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { jsx } from '@emotion/react'
+import { jsx, css } from '@emotion/react'
 
 
 const Header = () => {
@@ -13,9 +13,9 @@ const Header = () => {
 export default Header;
 
 const styles = {
-  header: {
+  header: css({
     padding: '0.5em',
     backgroundColor: '#5DADE2'
-  },
+  }),
 
 }

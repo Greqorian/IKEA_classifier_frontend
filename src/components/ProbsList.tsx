@@ -1,4 +1,12 @@
-const ProbsList = ({ probs }) => {
+/** @jsxImportSource @emotion/react */
+import { jsx, css } from '@emotion/react'
+
+type ProbsListProps = { 
+  [key: string]: any 
+};
+
+
+const ProbsList = ({ probs }: { probs: ProbsListProps} ) => {
   if (probs == null || probs == undefined) {
     return null;
   }

@@ -4,8 +4,9 @@ import {getFormData, fetchPredic} from "../utils/axios";
 import Predictions from "./Predictions";
 import ImagePreview from "./ImagePreview";
 import Header from "./Header";
-import Title from "./Title.tsx";
+import Title from "./Title";
 import SpacerFlexbox from "./SpacerFlexbox";
+import {PredictionsType} from "./Predictions"
 
 import {
   WrapperContainerLarge,
@@ -14,15 +15,15 @@ import {
 } from "./Wrappers";
 
 const LandingPage = () => {
-  const [image, setImage] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
-  const [predictions, setPredictions] = useState(null);
+  const [image, setImage] = useState<File | null>(null);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+  const [predictions, setPredictions] = useState<PredictionsType | null>(null);
 
-  const handleInputFile = (imgFile) => {
+  const handleInputFile = (imgFile: File) => {
     setIsFetching(true);
     setImage(imgFile);
   };
-  const handleResponse = (response) => {
+  const handleResponse = (response: PredictionsType) => {
     setIsFetching(false);
     setPredictions(response);
   };
@@ -32,7 +33,6 @@ const LandingPage = () => {
     fetchPredic(formData, handleResponse);
   }
 
-  const imgSrc = image !== null && URL.createObjectURL(image);
   console.log("isFetching", isFetching);
 
   return (
@@ -43,8 +43,8 @@ const LandingPage = () => {
         <WrapperContainerSmall>
           <Title>Furniture recognition for IKEA products</Title>
           <ImageUpload handleInputFile={handleInputFile} />
-          <ImagePreview imgSrc={imgSrc} />
-          
+
+          {image !== null && <ImagePreview imgSrc={URL.createObjectURL(image)} />}
           {predictions !== null && isFetching === false && <Predictions predictions={predictions} /> }
           {isFetching == true && <Title>Identification pending...</Title> }
           
