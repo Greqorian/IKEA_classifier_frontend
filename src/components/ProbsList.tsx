@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { jsx, css } from '@emotion/react'
 
-type ProbsListProps = { 
+export type ProbsListType = { 
   [key: string]: any 
 };
 
 
-const ProbsList = ({ probs }: { probs: ProbsListProps} ) => {
+const ProbsList = ({ probs }: { probs: ProbsListType} ) => {
   if (probs == null || probs == undefined) {
     return null;
   }

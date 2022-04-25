@@ -1,9 +1,10 @@
 import ProbsList from "./ProbsList";
 import Title from "./Title";
+import {ProbsListType} from "./ProbsList"
 
 export type PredictionsType = { 
   category: string,
-  probs: any
+  probs: ProbsListType
 };
 
 const Predictions = ({ predictions }: {predictions: PredictionsType}) => {
