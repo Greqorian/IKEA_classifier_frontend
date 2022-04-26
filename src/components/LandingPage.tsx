@@ -33,8 +33,6 @@ const LandingPage = () => {
     fetchPredic(formData, handleResponse);
   }
 
-  console.log("isFetching", isFetching);
-
   return (
     <WrapperContainerLarge>
       <SpacerFlexbox />

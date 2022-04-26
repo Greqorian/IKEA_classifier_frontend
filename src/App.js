@@ -1,10 +1,11 @@
 import LandingPage from './components/LandingPage'
-import './styles/styles.sass';
+import {GlobalStyles} from './styles/GlobalStyles';
 
 function App() {
   return (
     <div className="App">
-      <LandingPage/>
+      <GlobalStyles />
+      <LandingPage />
     </div>
   );
 }
